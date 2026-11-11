@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>REVESTE | Nossos Produtos</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <nav class="navbar container">
+
+            <a class="brand" href="index.html">
+                <img src="imagens/marca-simbolo.png"
+                     class="brand-symbol" alt="REVESTE">
+
+                <span class="brand-name">
+                    REVESTE
+                    <small>INDÚSTRIA TÊXTIL SUSTENTÁVEL</small>
+                </span>
+            </a>
+
+            <div class="product-nav">
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+
+                <button class="cart-button" onclick="abrirCarrinho()">
+                    🛒 Carrinho
+                    <span id="cart-count">0</span>
+                </button>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="products-page">
+
+        <section class="products-intro container">
+
+            <span class="eyebrow">CONHEÇA NOSSA COLEÇÃO</span>
+
+            <h1>
+                Produtos que transformam
+                <br>tecidos em novas possibilidades.
+            </h1>
+
+            <p>
+                Na REVESTE, materiais têxteis reaproveitados
+                ganham uma nova vida por meio de produtos
+                funcionais, criativos e sustentáveis.
+            </p>
+
+        </section>
+
+
+        <section class="products-list container">
+
+            <!-- ECOBAG -->
+
+            <article class="product-item">
+
+                <div class="product-photo">
+                    <img src="imagens/ecobag-jeans.jpg"
+                         alt="Bolsa ecobag REVESTE">
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category"></span>
+
+                    <h2>Bolsa Ecobag</h2>
+
+                    <p>
+                        Uma alternativa prática e sustentável
+                        para o dia a dia. A ecobag une
+                        funcionalidade, estilo e consciência ambiental.
+                    </p>
+
+                    <div class="product-price">
+                        <strong>R$86,99</strong>
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="adicionarCarrinho('Bolsa Ecobag')">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- NECESSAIRE -->
+
+            <article class="product-item">
+
+                <div class="product-photo">
+                    <img src="imagens/necessaire-jeans.jpg"
+                         alt="Nécessaire REVESTE">
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category"></span>
+
+                    <h2>Nécessaire</h2>
+
+                    <p>
+                        Ideal para organizar objetos pessoais.
+                        Combina praticidade e sustentabilidade.
+                    </p>
+
+                    <div class="product-price">
+                        <strong>R$48,95</strong>
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="adicionarCarrinho('Nécessaire')">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CARTEIRA -->
+
+            <article class="product-item">
+
+                <div class="product-photo">
+                    <img src="imagens/tecido-reaproveitado.jpg"
+                         alt="Carteira REVESTE">
+                </div>
+
+                <div class="product-info">
+
+                    <span class="product-category"></span>
+
+                    <h2>Carteira</h2>
+
+                    <p>
+                        Compacta e funcional, aproveita materiais
+                        têxteis que seriam descartados,
+                        transformando-os em um acessório útil.
+                    </p>
+
+                    <div class="product-price">
+                        <strong>R$27,99</strong>
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="adicionarCarrinho('Carteira')">
+                        Adicionar ao carrinho
+                    </button>
+
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+    <!-- FUNDO ESCURO DO CARRINHO -->
+
+    <div id="cart-overlay" onclick="fecharCarrinho()"></div>
+
+
+    <!-- CARRINHO LATERAL -->
+
+    <aside id="cart-panel">
+
+        <div class="cart-header">
+
+            <h2>Meu carrinho</h2>
+
+            <button onclick="fecharCarrinho()" class="close-cart">
+                ✕
+            </button>
+
+        </div>
+
+        <div id="cart-items">
+
+            <p class="empty-cart">
+                Seu carrinho está vazio.
+            </p>
+
+        </div>
+
+<div class="cart-footer">
+
+    <p id="cart-total">
+        Total: A combinar
+    </p>
+
+    <button class="checkout-button"
+        onclick="abrirCheckout()">
+        Finalizar compra
+    </button>
+
+</div>
+
+    </aside>
+
+
+<!-- TELA DE FINALIZAÇÃO DA COMPRA -->
+
+<div id="checkout-overlay">
+
+    <div class="checkout-box">
+
+        <div class="checkout-header">
+            <div>
+                <span class="eyebrow">REVESTE</span>
+                <h2>Finalizar pedido</h2>
+                <p>Preencha seus dados para concluir sua compra.</p>
+            </div>
+
+            <button class="close-cart" onclick="fecharCheckout()">
+                ✕
+            </button>
+        </div>
+
+        <form id="checkout-form">
+
+            <h3>Dados pessoais</h3>
+
+            <label for="cliente-nome">Nome completo</label>
+            <input
+                type="text"
+                id="cliente-nome"
+                placeholder="Digite seu nome"
+                required
+            >
+
+            <label for="cliente-telefone">Telefone</label>
+            <input
+                type="tel"
+                id="cliente-telefone"
+                placeholder="(00) 00000-0000"
+                required
+            >
+
+            <h3>Endereço de entrega</h3>
+
+            <label for="cliente-cep">CEP</label>
+            <input
+                type="text"
+                id="cliente-cep"
+                placeholder="00000-000"
+                required
+            >
+
+            <label for="cliente-rua">Rua / Avenida</label>
+            <input
+                type="text"
+                id="cliente-rua"
+                placeholder="Nome da rua"
+                required
+            >
+
+            <div class="checkout-fields">
+
+                <div>
+                    <label for="cliente-numero">Número</label>
+                    <input
+                        type="text"
+                        id="cliente-numero"
+                        placeholder="Nº"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="cliente-complemento">Complemento</label>
+                    <input
+                        type="text"
+                        id="cliente-complemento"
+                        placeholder="Apartamento, casa..."
+                    >
+                </div>
+
+            </div>
+
+            <label for="cliente-bairro">Bairro</label>
+            <input
+                type="text"
+                id="cliente-bairro"
+                placeholder="Seu bairro"
+                required
+            >
+
+            <label for="cliente-cidade">Cidade</label>
+            <input
+                type="text"
+                id="cliente-cidade"
+                placeholder="Sua cidade"
+                required
+            >
+
+            <label for="cliente-estado">Estado</label>
+            <select id="cliente-estado" required>
+                <option value="">Selecione seu estado</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="PR">Paraná</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="BA">Bahia</option>
+                <option value="GO">Goiás</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="Outro">Outro estado</option>
+            </select>
+
+            <h3>Forma de pagamento</h3>
+
+            <label for="forma-pagamento">Selecione uma opção</label>
+
+            <select id="forma-pagamento" required>
+                <option value="">Escolha como deseja pagar</option>
+                <option value="Pix">Pix</option>
+                <option value="Cartão de crédito">Cartão de crédito</option>
+                <option value="Cartão de débito">Cartão de débito</option>
+                <option value="Dinheiro">Dinheiro</option>
+            </select>
+
+            <div class="checkout-summary">
+                <h3>Resumo do pedido</h3>
+                <div id="checkout-summary-items"></div>
+                <p>Valores: a combinar com a loja.</p>
+            </div>
+
+            <button type="submit" class="checkout-button">
+                Confirmar pedido
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- MENSAGEM DE COMPRA CONCLUÍDA -->
+
+<div id="success-overlay">
+
+    <div class="success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Muito obrigado pela sua compra!</h2>
+
+        <p>
+            Seu pedido foi recebido com sucesso.
+            Agradecemos por escolher a REVESTE e apoiar
+            uma moda mais sustentável.
+        </p>
+
+        <button onclick="voltarParaLoja()" class="checkout-button">
+            Continuar comprando
+        </button>
+
+    </div>
+
+</div>
+
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                REVESTE — Transformando tecidos,
+                construindo um futuro sustentável.
+            </p>
+
+            <a href="index.html">
+                Voltar para a página inicial ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
